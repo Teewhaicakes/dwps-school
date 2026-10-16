@@ -69,14 +69,14 @@
     <div class="field"><label>Date of Birth</label><input type="date" name="dob"></div>
     <div class="field"><label>Gender</label><select name="gender"><option value="">Select</option><option>Female</option><option>Male</option><option>Prefer not to say</option></select></div>
     <div class="field"><label>School Section *</label><select name="section" required><option value="">Select section</option><option>Nursery</option><option>Primary</option><option>Secondary</option></select></div>
-    <div class="field"><label>Class *</label><input name="className" required placeholder="e.g. Primary 4, JSS 1"></div>
+    <div class="field"><label>Class *</label><select name="className" id="student-class" required><option value="">Select class</option></select><div class="muted">Selecting a class automatically fills in its standard term fee. You can still adjust the fee for an individual student.</div></div>
     <div class="field"><label>Academic Session *</label><input name="session" required value="2026/2027"></div>
     <div class="field"><label>Term *</label><select name="term" required><option>First Term</option><option>Second Term</option><option>Third Term</option></select></div>
     <div class="field"><label>Parent/Guardian Name *</label><input name="guardian" required></div>
     <div class="field"><label>Parent/Guardian Phone *</label><input name="phone" required inputmode="tel"></div>
     <div class="field"><label>Parent Email (optional)</label><input name="email" type="email"></div>
     <div class="field"><label>Date of Admission</label><input name="admissionDate" type="date"></div>
-    <div class="field"><label>Expected School Fees (₦) *</label><input name="fees" type="number" min="0" step="0.01" required></div>
+    <div class="field"><label>Expected School Fees per Term (₦) *</label><input name="fees" id="student-fees" type="number" min="0" step="1" required></div>
     <div class="field"><label>Other notes (optional)</label><input name="notes"></div>
     <div class="field full"><label>Residential Address (optional)</label><textarea name="address"></textarea></div>
    </div>
@@ -152,6 +152,32 @@ function saveState(){localStorage.setItem(KEY,JSON.stringify(state));renderAll()
 function money(n){return new Intl.NumberFormat('en-NG',{style:'currency',currency:'NGN',maximumFractionDigits:2}).format(Number(n)||0).replace('NGN','₦')}
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function today(){return new Date().toISOString().slice(0,10)}
+// DWPS standard school fees per term. These are applied automatically by class.
+const DWPS_FEE_SCHEDULE={
+ 'Nursery 1':30000,'Nursery 2':30000,
+ 'Primary 1':35000,'Primary 2':35000,'Primary 3':35000,'Primary 4':35000,'Primary 5':35000,
+ 'JSS 1':40000,'JSS 2':40000,'JSS 3':40000,
+ 'SS 1':45000,'SS 2':45000,'SS 3':45000
+};
+const DWPS_CLASSES_BY_SECTION={
+ 'Nursery':['Nursery 1','Nursery 2'],
+ 'Primary':['Primary 1','Primary 2','Primary 3','Primary 4','Primary 5'],
+ 'Secondary':['JSS 1','JSS 2','JSS 3','SS 1','SS 2','SS 3']
+};
+function updateClassChoices(keepClass=false){
+ const form=document.getElementById('student-form'); if(!form)return;
+ const section=form.elements.section.value, classEl=form.elements.className, previous=keepClass?classEl.value:'';
+ const classes=DWPS_CLASSES_BY_SECTION[section]||[];
+ classEl.innerHTML='<option value="">Select class</option>'+classes.map(c=>`<option value="${c}">${c}</option>`).join('');
+ if(previous && classes.includes(previous)) classEl.value=previous;
+ if(classEl.value) applyClassFee();
+}
+function applyClassFee(){
+ const form=document.getElementById('student-form'); if(!form)return;
+ const cls=form.elements.className.value, fee=DWPS_FEE_SCHEDULE[cls];
+ if(fee!==undefined) form.elements.fees.value=fee;
+}
+
 function showPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+name));document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(name==='receipt')document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));renderAll();window.scrollTo(0,0)}
 document.querySelectorAll('.navbtn').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
 function studentById(id){return state.students.find(s=>s.id===id)}
@@ -181,7 +207,10 @@ function renderBooks(){const el=document.getElementById('books-table');if(!el)re
 function renderTransactions(){const el=document.getElementById('transactions-table');if(!el)return;const q=(document.getElementById('transaction-search')?.value||'').toLowerCase(),type=document.getElementById('transaction-type')?.value||'';
  let arr=[...state.payments.map(x=>({...x,kind:'fees',label:'School fees',studentName:studentById(x.studentId)?.name||'Unknown',paid:Number(x.amount)})),...state.books.map(x=>({...x,kind:'books',label:'Books/items',studentName:studentById(x.studentId)?.name||'Unknown',paid:Number(x.paid)}))].filter(x=>(!type||x.kind===type)&&(!q||[x.receiptNo,x.studentName,x.admission].some(v=>String(v||'').toLowerCase().includes(q)))).sort((a,b)=>b.date.localeCompare(a.date));
  el.innerHTML=arr.length?`<div class="tablewrap"><table><thead><tr><th>Receipt No.</th><th>Date</th><th>Student</th><th>Type</th><th>Amount received</th><th>Method</th><th>Action</th></tr></thead><tbody>${arr.map(x=>`<tr><td>${esc(x.receiptNo)}</td><td>${esc(x.date)}</td><td>${esc(x.studentName)}</td><td>${x.label}</td><td>${money(x.paid)}</td><td>${esc(x.method||'—')}</td><td><button class="light small" onclick="showReceipt('${x.kind==='fees'?'payment':'book'}','${x.id}')">View / Print</button></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No transactions match your search.</div>'}
-document.getElementById('student-form').addEventListener('submit',e=>{e.preventDefault();let f=Object.fromEntries(new FormData(e.target));let id='stu_'+Date.now();let admission=f.admission.trim()||'DWPS/'+new Date().getFullYear()+'/'+String(state.counters.student++).padStart(4,'0');if(state.students.some(s=>s.admission.toLowerCase()===admission.toLowerCase()))return alert('That admission number already exists. Please use a unique number.');state.students.push({...f,id,admission,fees:Number(f.fees),createdAt:new Date().toISOString()});saveState();e.target.reset();e.target.elements.session.value='2026/2027';msg('register-success',`Student saved successfully. Admission number: ${admission}`);showPage('students')});
+document.getElementById('student-form').elements.section.addEventListener('change',()=>updateClassChoices());
+document.getElementById('student-form').elements.className.addEventListener('change',applyClassFee);
+updateClassChoices();
+document.getElementById('student-form').addEventListener('submit',e=>{e.preventDefault();let f=Object.fromEntries(new FormData(e.target));let id='stu_'+Date.now();let admission=f.admission.trim()||'DWPS/'+new Date().getFullYear()+'/'+String(state.counters.student++).padStart(4,'0');if(state.students.some(s=>s.admission.toLowerCase()===admission.toLowerCase()))return alert('That admission number already exists. Please use a unique number.');state.students.push({...f,id,admission,fees:Number(f.fees),createdAt:new Date().toISOString()});saveState();e.target.reset();updateClassChoices();e.target.elements.session.value='2026/2027';msg('register-success',`Student saved successfully. Admission number: ${admission}`);showPage('students')});
 document.getElementById('payment-student').addEventListener('change',updatePaymentPreview);
 function updatePaymentPreview(){const el=document.getElementById('payment-preview'),id=document.getElementById('payment-student')?.value,s=studentById(id);if(!el)return;if(!s){el.style.display='none';return}let paid=totalPaid(s),bal=Math.max(0,s.fees-paid);el.style.display='block';el.innerHTML=`<strong>${esc(s.name)}</strong> · ${esc(s.className)}<br>Expected fees: ${money(s.fees)} &nbsp;|&nbsp; Paid so far: ${money(paid)} &nbsp;|&nbsp; Balance before payment: ${money(bal)}`}
 document.getElementById('payment-form').addEventListener('submit',e=>{e.preventDefault();let f=Object.fromEntries(new FormData(e.target)),s=studentById(f.studentId);if(!s)return;let amount=Number(f.amount);if(amount<=0)return alert('Enter an amount greater than zero.');let receiptNo=`${state.settings.prefix||'DWPS'}-${new Date().getFullYear()}-${String(state.counters.receipt++).padStart(6,'0')}`;let p={...f,id:'pay_'+Date.now(),amount,receiptNo,studentName:s.name,admission:s.admission,section:s.section,className:s.className,createdAt:new Date().toISOString()};state.payments.push(p);saveState();e.target.reset();document.getElementById('payment-date').value=today();document.getElementById('payment-form').elements.session.value='2026/2027';showReceipt('payment',p.id);msg('payment-success','Payment recorded and receipt generated.')});
