@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "DWPS \u2014 De Wise Potter School",
+  "short_name": "DWPS",
+  "description": "Student registration, school fees, books, payments and receipts for De Wise Potter School.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fa",
+  "theme_color": "#123c69",
+  "icons": [
+    {
+      "src": "./dwps-logo.jpg",
+      "sizes": "any",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

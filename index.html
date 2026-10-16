@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123c69">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="dwps-logo.jpg">
+<title>DWPS | De Wise Potter School</title>
+<style>
+:root{--navy:#123c69;--blue:#1f5d91;--gold:#e5b34b;--bg:#f3f6fa;--ink:#1c2b3a;--muted:#6c7a89;--line:#dce4ed;--white:#fff;--green:#19784b;--red:#b33b3b}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:9px;padding:10px 14px;font-weight:700}.primary{background:var(--navy);color:#fff}.gold{background:var(--gold);color:#182638}.light{background:#e8eef5;color:var(--navy)}.danger{background:#fde8e8;color:var(--red)}header{background:linear-gradient(120deg,#102f52,#1e5b8b);color:#fff;padding:18px 22px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-bottom:4px solid var(--gold)}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:14px;background:var(--gold);color:#163a60;display:grid;place-items:center;font-size:20px;font-weight:900}.brand h1{font-size:20px;margin:0 0 4px}.brand p{margin:0;font-size:12px;opacity:.85}.header-tag{font-size:12px;background:#ffffff20;padding:8px 10px;border-radius:20px}.layout{display:grid;grid-template-columns:225px 1fr;min-height:calc(100vh - 88px)}aside{background:#fff;border-right:1px solid var(--line);padding:18px 12px}.navbtn{display:block;width:100%;text-align:left;background:transparent;color:#536476;margin-bottom:6px;padding:12px;border-radius:9px}.navbtn.active,.navbtn:hover{background:#eaf1f8;color:var(--navy)}main{padding:24px;min-width:0}.page{display:none}.page.active{display:block}.pagehead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}.pagehead h2{margin:0 0 5px;font-size:25px}.muted{color:var(--muted);font-size:13px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:22px}.card,.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;box-shadow:0 3px 12px #122c4a08}.card .label{color:var(--muted);font-size:12px;margin-bottom:10px}.card .value{font-size:24px;font-weight:800;color:var(--navy)}.panel{margin-bottom:18px}.panel h3{margin:0 0 15px;font-size:17px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:700;color:#526273}.field input,.field select,.field textarea{width:100%;padding:11px;border:1px solid #ccd7e2;border-radius:8px;background:#fff;color:var(--ink)}.field textarea{min-height:75px;resize:vertical}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:650px}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid #e9eef3;font-size:13px}th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#657487;background:#f8fafc}tr:last-child td{border-bottom:0}.badge{display:inline-block;padding:5px 8px;border-radius:20px;font-size:11px;font-weight:700}.paid{background:#e0f5e9;color:#17653f}.partial{background:#fff2d6;color:#885b00}.unpaid{background:#fde8e8;color:#a52d2d}.searchrow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.searchrow input,.searchrow select{padding:10px;border:1px solid #ccd7e2;border-radius:8px;background:#fff}.searchrow input{flex:1;min-width:180px}.small{font-size:12px}.empty{text-align:center;color:var(--muted);padding:30px}.notice{background:#fff8e5;border:1px solid #f1d88e;padding:12px 14px;border-radius:10px;color:#71551b;font-size:12px;line-height:1.5;margin-bottom:18px}.success{background:#e8f7ee;border:1px solid #b7e2c8;padding:10px;border-radius:8px;color:#17653f;font-size:13px;margin-bottom:12px;display:none}.receipt{max-width:720px;margin:auto;background:white;padding:28px;border:1px solid #d4dce5}.receipthead{text-align:center;border-bottom:3px double var(--navy);padding-bottom:16px}.receipthead h1{margin:0;color:var(--navy);font-size:23px}.receipthead p{margin:6px 0;color:#586a7d}.receipt-title{text-align:center;font-size:19px;font-weight:800;letter-spacing:2px;margin:22px 0;color:var(--navy)}.receipt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px}.receipt-grid div{padding:9px;border-bottom:1px solid #e3e8ee}.receipt-grid strong{display:block;color:#647487;font-size:10px;text-transform:uppercase;margin-bottom:4px}.receipt-amount{margin:22px 0;padding:16px;background:#f2f6fa;border-left:4px solid var(--gold);font-size:24px;font-weight:800;color:var(--navy)}.signatures{display:flex;justify-content:space-between;margin-top:40px;font-size:12px}.signatures span{border-top:1px solid #7d8997;padding-top:8px;width:40%;text-align:center}.footer{text-align:center;color:#778596;font-size:11px;margin-top:28px}.mobile-nav{display:none}
+@media(max-width:900px){.layout{grid-template-columns:1fr}aside{display:flex;overflow:auto;padding:8px;border-right:0;border-bottom:1px solid var(--line)}.navbtn{white-space:nowrap;width:auto;margin:0 4px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding:16px}.grid2{grid-template-columns:1fr}}
+@media(max-width:540px){header{padding:14px}.brand h1{font-size:16px}.header-tag{display:none}.cards{gap:9px}.card{padding:13px}.card .value{font-size:20px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.pagehead h2{font-size:22px}.receipt{padding:15px}.receipt-grid{grid-template-columns:1fr 1fr}}
+@media print{body{background:white}.no-print,header,aside,.pagehead,.notice{display:none!important}.layout{display:block}main{padding:0}.page{display:none!important}#page-receipt{display:block!important}.receipt{border:0;max-width:none;padding:12mm}.receipthead h1{font-size:22px}}
+</style>
+</head>
+<body>
+<div id="login-gate" style="position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#102f52,#1e5b8b);display:flex;align-items:center;justify-content:center;padding:20px">
+ <form id="login-form" style="width:min(420px,100%);background:#fff;border-radius:18px;padding:28px;box-shadow:0 20px 70px #0004">
+  <div style="text-align:center;margin-bottom:20px"><img src="dwps-logo.jpg" alt="DWPS logo" style="width:90px;height:90px;object-fit:contain"><h2 style="margin:12px 0 4px;color:#123c69">DWPS Admin Login</h2><p style="margin:0;color:#6c7a89;font-size:13px">De Wise Potter School · Moulding for Excellence</p></div>
+  <div id="login-error" style="display:none;background:#fde8e8;color:#a52d2d;padding:10px;border-radius:8px;font-size:13px;margin-bottom:12px"></div>
+  <label style="display:block;font-size:12px;font-weight:700;margin:12px 0 6px">Username</label><input id="login-username" autocomplete="username" required style="width:100%;padding:12px;border:1px solid #ccd7e2;border-radius:8px">
+  <label style="display:block;font-size:12px;font-weight:700;margin:12px 0 6px">Password</label><input id="login-password" type="password" autocomplete="current-password" required style="width:100%;padding:12px;border:1px solid #ccd7e2;border-radius:8px">
+  <button class="primary" type="submit" style="width:100%;margin-top:18px;padding:13px">Log In</button>
+  <p style="font-size:11px;color:#8a5a00;line-height:1.5;margin:14px 0 0">Prototype demo login: username <b>admin</b>, password <b>DWPS2026!</b>. This is not secure authentication; change nothing sensitive or use real student data in this prototype.</p>
+ </form>
+</div>
+<header>
+ <div class="brand"><div class="logo"><img src="dwps-logo.jpg" alt="DWPS school crest" style="width:100%;height:100%;object-fit:contain;border-radius:12px;background:#fff"></div><div><h1>DWPS — De Wise Potter School</h1><p>Moulding for Excellence · Student Records &amp; Accounts</p></div></div>
+ <div style="display:flex;align-items:center;gap:10px"><div class="header-tag">MOULDING FOR EXCELLENCE · PROTOTYPE</div><button class="gold no-print" id="logout-btn" style="display:none" type="button">Log Out</button></div>
+</header>
+<div class="layout">
+<aside class="no-print">
+ <button class="navbtn active" data-page="dashboard">▦ &nbsp; Dashboard</button>
+ <button class="navbtn" data-page="students">♙ &nbsp; Students</button>
+ <button class="navbtn" data-page="register">＋ &nbsp; Register Student</button>
+ <button class="navbtn" data-page="payments">₦ &nbsp; Record Payment</button>
+ <button class="navbtn" data-page="books">▤ &nbsp; Books &amp; Items</button>
+ <button class="navbtn" data-page="transactions">☷ &nbsp; Transactions</button>
+ <button class="navbtn" data-page="settings">⚙ &nbsp; School Settings</button>
+</aside>
+<main>
+<section class="page active" id="page-dashboard">
+ <div class="pagehead"><div><h2>Dashboard</h2><div class="muted">A quick overview of De Wise Potter School records.</div></div><button class="primary" onclick="showPage('register')">＋ Register Student</button></div>
+ <div class="notice"><strong>Important:</strong> This is a prototype with a demo login only. Records are saved in this browser on this device and do not synchronize to other devices. Export backups regularly. Do not use real confidential student records until secure server-side authentication and cloud storage are implemented.</div>
+ <div class="cards">
+  <div class="card"><div class="label">Registered Students</div><div class="value" id="stat-students">0</div></div>
+  <div class="card"><div class="label">Fees Expected</div><div class="value" id="stat-expected">₦0</div></div>
+  <div class="card"><div class="label">Fees Collected</div><div class="value" id="stat-collected">₦0</div></div>
+  <div class="card"><div class="label">Outstanding Fees</div><div class="value" id="stat-outstanding">₦0</div></div>
+ </div>
+ <div class="cards">
+  <div class="card"><div class="label">Book/Item Sales</div><div class="value" id="stat-books">₦0</div></div>
+  <div class="card"><div class="label">Payments Recorded</div><div class="value" id="stat-payments">0</div></div>
+  <div class="card"><div class="label">Fully Paid Students</div><div class="value" id="stat-paid">0</div></div>
+  <div class="card"><div class="label">Students With Balance</div><div class="value" id="stat-due">0</div></div>
+ </div>
+ <div class="panel"><h3>Recent transactions</h3><div id="recent-table"></div></div>
+</section>
+<section class="page" id="page-register">
+ <div class="pagehead"><div><h2>Register a Student</h2><div class="muted">Create a student profile and set the expected school fees.</div></div></div>
+ <div class="panel">
+  <div id="register-success" class="success"></div>
+  <form id="student-form">
+   <div class="formgrid">
+    <div class="field"><label>Student's Full Name *</label><input name="name" required></div>
+    <div class="field"><label>Admission Number (leave blank to auto-generate)</label><input name="admission"></div>
+    <div class="field"><label>Date of Birth</label><input type="date" name="dob"></div>
+    <div class="field"><label>Gender</label><select name="gender"><option value="">Select</option><option>Female</option><option>Male</option><option>Prefer not to say</option></select></div>
+    <div class="field"><label>School Section *</label><select name="section" required><option value="">Select section</option><option>Nursery</option><option>Primary</option><option>Secondary</option></select></div>
+    <div class="field"><label>Class *</label><input name="className" required placeholder="e.g. Primary 4, JSS 1"></div>
+    <div class="field"><label>Academic Session *</label><input name="session" required value="2026/2027"></div>
+    <div class="field"><label>Term *</label><select name="term" required><option>First Term</option><option>Second Term</option><option>Third Term</option></select></div>
+    <div class="field"><label>Parent/Guardian Name *</label><input name="guardian" required></div>
+    <div class="field"><label>Parent/Guardian Phone *</label><input name="phone" required inputmode="tel"></div>
+    <div class="field"><label>Parent Email (optional)</label><input name="email" type="email"></div>
+    <div class="field"><label>Date of Admission</label><input name="admissionDate" type="date"></div>
+    <div class="field"><label>Expected School Fees (₦) *</label><input name="fees" type="number" min="0" step="0.01" required></div>
+    <div class="field"><label>Other notes (optional)</label><input name="notes"></div>
+    <div class="field full"><label>Residential Address (optional)</label><textarea name="address"></textarea></div>
+   </div>
+   <div class="actions"><button class="primary" type="submit">Save Student</button><button class="light" type="reset">Clear Form</button></div>
+  </form>
+ </div>
+</section>
+<section class="page" id="page-students">
+ <div class="pagehead"><div><h2>Students</h2><div class="muted">Search student records and view their balances.</div></div><button class="primary" onclick="showPage('register')">＋ Add Student</button></div>
+ <div class="panel"><div class="searchrow"><input id="student-search" placeholder="Search name, admission no., parent or phone…"><select id="class-filter"><option value="">All classes</option></select><select id="section-filter"><option value="">All sections</option><option>Nursery</option><option>Primary</option><option>Secondary</option></select></div><div id="students-table"></div></div>
+</section>
+<section class="page" id="page-payments">
+ <div class="pagehead"><div><h2>Record School Fees Payment</h2><div class="muted">Enter the amount received. The balance is calculated automatically.</div></div></div>
+ <div class="panel"><div id="payment-success" class="success"></div>
+ <form id="payment-form"><div class="formgrid">
+  <div class="field full"><label>Student *</label><select name="studentId" id="payment-student" required><option value="">Choose a student</option></select></div>
+  <div class="field"><label>Payment Date *</label><input type="date" name="date" id="payment-date" required></div>
+  <div class="field"><label>Academic Session *</label><input name="session" required value="2026/2027"></div>
+  <div class="field"><label>Term *</label><select name="term" required><option>First Term</option><option>Second Term</option><option>Third Term</option></select></div>
+  <div class="field"><label>Amount Received (₦) *</label><input name="amount" type="number" min="0.01" step="0.01" required></div>
+  <div class="field"><label>Payment Method *</label><select name="method" required><option>Cash</option><option>Bank Transfer</option><option>POS</option><option>Other</option></select></div>
+  <div class="field"><label>Transaction Reference (optional)</label><input name="reference"></div>
+  <div class="field full"><label>Payment Note (optional)</label><input name="note" placeholder="e.g. First instalment"></div>
+ </div><div id="payment-preview" class="notice" style="margin-top:14px;display:none"></div><div class="actions"><button class="primary" type="submit">Record Payment &amp; Generate Receipt</button></div></form>
+ </div>
+</section>
+<section class="page" id="page-books">
+ <div class="pagehead"><div><h2>Books &amp; Items</h2><div class="muted">Record books, workbooks, uniforms and other items bought by a student.</div></div></div>
+ <div class="panel"><div id="books-success" class="success"></div>
+ <form id="book-form"><div class="formgrid">
+  <div class="field full"><label>Student *</label><select name="studentId" id="book-student" required><option value="">Choose a student</option></select></div>
+  <div class="field"><label>Date *</label><input type="date" name="date" id="book-date" required></div>
+  <div class="field"><label>Academic Session *</label><input name="session" required value="2026/2027"></div>
+  <div class="field"><label>Term *</label><select name="term" required><option>First Term</option><option>Second Term</option><option>Third Term</option></select></div>
+  <div class="field"><label>Book/Item Name *</label><input name="item" required placeholder="e.g. Mathematics textbook"></div>
+  <div class="field"><label>Quantity *</label><input name="quantity" type="number" min="1" step="1" value="1" required></div>
+  <div class="field"><label>Unit Price (₦) *</label><input name="price" type="number" min="0" step="0.01" required></div>
+  <div class="field"><label>Amount Paid Now (₦) *</label><input name="paid" type="number" min="0" step="0.01" required></div>
+  <div class="field"><label>Payment Method</label><select name="method"><option>Cash</option><option>Bank Transfer</option><option>POS</option><option>Other</option></select></div>
+ </div><div class="actions"><button class="primary" type="submit">Save Book/Item Purchase</button></div></form></div>
+ <div class="panel"><h3>Recorded book and item purchases</h3><div id="books-table"></div></div>
+</section>
+<section class="page" id="page-transactions">
+ <div class="pagehead"><div><h2>Transactions &amp; Receipts</h2><div class="muted">Review recorded payments and reprint receipts.</div></div><button class="light" onclick="exportBackup()">Export Backup (JSON)</button></div>
+ <div class="panel"><div class="searchrow"><input id="transaction-search" placeholder="Search receipt number, student or admission number…"><select id="transaction-type"><option value="">All transactions</option><option value="fees">School fees</option><option value="books">Books &amp; items</option></select></div><div id="transactions-table"></div></div>
+ <div class="panel"><h3>Restore a backup</h3><p class="muted">Choose a previously exported DWPS JSON backup. Restoring replaces the current records on this device.</p><input id="restore-file" type="file" accept=".json,application/json"><button class="danger" onclick="restoreBackup()">Restore Backup</button></div>
+</section>
+<section class="page" id="page-settings">
+ <div class="pagehead"><div><h2>School Settings</h2><div class="muted">Details shown on printed receipts.</div></div></div>
+ <div class="panel"><form id="settings-form"><div class="formgrid">
+  <div class="field"><label>School Name</label><input name="schoolName" value="De Wise Potter School" required></div>
+  <div class="field"><label>Short Name</label><input name="shortName" value="DWPS" required></div>
+  <div class="field"><label>School Phone</label><input name="phone" value="08026863463, 07031270833, 08150914479"></div>
+  <div class="field"><label>School Email</label><input name="email" type="email" value="Thewisepotter@gmail.com"></div>
+  <div class="field full"><label>School Address</label><textarea name="address">2, Abuja Drive B, Off Muyideen Akande Street, Matogun Road, Oke-Aro, Ifo LG, Ogun State.></textarea></div>
+  <div class="field"><label>Receipt Footer Message</label><input name="footer" value="Thank you. Keep this receipt for your records."></div>
+  <div class="field"><label>Receipt Prefix</label><input name="prefix" value="DWPS"></div>
+ </div><div class="actions"><button class="primary" type="submit">Save School Settings</button><button class="light" type="button" onclick="exportBackup()">Export Data Backup</button></div></form></div>
+ <div class="notice"><strong>Privacy and safety:</strong> Use a device protected by a strong passcode. Do not store sensitive student data on a shared device. This prototype has no staff login or cloud security yet; those are required before real-world school-wide use.</div>
+</section>
+<section class="page" id="page-receipt">
+ <div class="pagehead no-print"><div><h2>Receipt Preview</h2><div class="muted">Print or save this receipt as PDF.</div></div><div class="actions"><button class="primary" onclick="window.print()">Print / Save PDF</button><button class="light" onclick="showPage('transactions')">Back to Transactions</button></div></div>
+ <div id="receipt-content" class="receipt"></div>
+</section>
+</main>
+</div>
+<script>
+const KEY='dwps_school_app_v1';
+const defaultState={students:[],payments:[],books:[],settings:{schoolName:'De Wise Potter School',shortName:'DWPS',phone:'08026863463, 07031270833, 08150914479',email:'Thewisepotter@gmail.com',address:'2, Abuja Drive B, Off Muyideen Akande Street, Matogun Road, Oke-Aro, Ifo LG, Ogun State.',footer:'Thank you. Keep this receipt for your records.',prefix:'DWPS'},counters:{student:1,receipt:1}};
+let state=loadState(), currentReceipt=null;
+function loadState(){try{return JSON.parse(localStorage.getItem(KEY))||defaultState}catch(e){return structuredClone(defaultState)}}
+function saveState(){localStorage.setItem(KEY,JSON.stringify(state));renderAll()}
+function money(n){return new Intl.NumberFormat('en-NG',{style:'currency',currency:'NGN',maximumFractionDigits:2}).format(Number(n)||0).replace('NGN','₦')}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function today(){return new Date().toISOString().slice(0,10)}
+function showPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+name));document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(name==='receipt')document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));renderAll();window.scrollTo(0,0)}
+document.querySelectorAll('.navbtn').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+function studentById(id){return state.students.find(s=>s.id===id)}
+function feesPaid(sid,session,term){return state.payments.filter(p=>p.studentId===sid&&p.session===session&&p.term===term).reduce((a,p)=>a+Number(p.amount),0)}
+function totalPaid(s){return state.payments.filter(p=>p.studentId===s.id&&p.session===s.session&&p.term===s.term).reduce((a,p)=>a+Number(p.amount),0)}
+function statusFor(s){let p=totalPaid(s);return p>=Number(s.fees)?'Paid':p>0?'Partially Paid':'Unpaid'}
+function badge(st){return `<span class="badge ${st==='Paid'?'paid':st==='Partially Paid'?'partial':'unpaid'}">${st}</span>`}
+function msg(id,text){let e=document.getElementById(id);e.textContent=text;e.style.display='block';setTimeout(()=>e.style.display='none',4500)}
+function renderAll(){renderDashboard();renderStudents();renderStudentOptions();renderBooks();renderTransactions();renderClassFilter();updatePaymentPreview()}
+function renderDashboard(){
+ const expected=state.students.reduce((a,s)=>a+Number(s.fees||0),0), collected=state.payments.reduce((a,p)=>a+Number(p.amount||0),0);
+ const bookTotal=state.books.reduce((a,b)=>a+Number(b.total||0),0);
+ const outstanding=state.students.reduce((a,s)=>a+Math.max(0,Number(s.fees||0)-totalPaid(s)),0);
+ const vals={'stat-students':state.students.length,'stat-expected':money(expected),'stat-collected':money(collected),'stat-outstanding':money(outstanding),'stat-books':money(bookTotal),'stat-payments':state.payments.length,'stat-paid':state.students.filter(s=>statusFor(s)==='Paid').length,'stat-due':state.students.filter(s=>statusFor(s)!=='Paid').length};
+ Object.entries(vals).forEach(([id,v])=>document.getElementById(id).textContent=v);
+ const all=[...state.payments.map(p=>({...p,type:'School fees',amount:p.amount})),...state.books.map(b=>({...b,type:'Books/items',amount:b.paid,studentName:studentById(b.studentId)?.name||'Unknown'}))].sort((a,b)=>(b.date||'').localeCompare(a.date||'')).slice(0,6);
+ document.getElementById('recent-table').innerHTML=all.length?`<div class="tablewrap"><table><thead><tr><th>Date</th><th>Student</th><th>Type</th><th>Amount received</th><th>Receipt</th></tr></thead><tbody>${all.map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.studentName||studentById(x.studentId)?.name||'')}</td><td>${x.type}</td><td>${money(x.amount)}</td><td>${x.receiptNo?esc(x.receiptNo):'—'}</td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No transactions yet. Record a payment to get started.</div>';
+}
+function renderStudents(){
+ const q=(document.getElementById('student-search')?.value||'').toLowerCase(), cls=document.getElementById('class-filter')?.value||'', sec=document.getElementById('section-filter')?.value||'';
+ const list=state.students.filter(s=>(!q||[s.name,s.admission,s.guardian,s.phone].some(v=>String(v||'').toLowerCase().includes(q)))&&(!cls||s.className===cls)&&(!sec||s.section===sec));
+ document.getElementById('students-table').innerHTML=list.length?`<div class="tablewrap"><table><thead><tr><th>Admission No.</th><th>Student</th><th>Class</th><th>Session / Term</th><th>Fees</th><th>Paid</th><th>Balance</th><th>Status</th><th>Actions</th></tr></thead><tbody>${list.map(s=>{let p=totalPaid(s),bal=Math.max(0,Number(s.fees)-p);return `<tr><td>${esc(s.admission)}</td><td><strong>${esc(s.name)}</strong><div class="muted">${esc(s.guardian)} · ${esc(s.phone)}</div></td><td>${esc(s.className)}</td><td>${esc(s.session)}<div class="muted">${esc(s.term)}</div></td><td>${money(s.fees)}</td><td>${money(p)}</td><td>${money(bal)}</td><td>${badge(statusFor(s))}</td><td><button class="light small" onclick="studentDetails('${s.id}')">View</button> <button class="danger small" onclick="deleteStudent('${s.id}')">Delete</button></td></tr>`}).join('')}</tbody></table></div>`:'<div class="empty">No students found. Register a student to begin.</div>';
+}
+function renderClassFilter(){const el=document.getElementById('class-filter');if(!el)return;const old=el.value;const classes=[...new Set(state.students.map(s=>s.className).filter(Boolean))].sort();el.innerHTML='<option value="">All classes</option>'+classes.map(c=>`<option>${esc(c)}</option>`).join('');el.value=classes.includes(old)?old:''}
+function renderStudentOptions(){['payment-student','book-student'].forEach(id=>{let el=document.getElementById(id),old=el.value;el.innerHTML='<option value="">Choose a student</option>'+state.students.map(s=>`<option value="${s.id}">${esc(s.name)} — ${esc(s.admission)} (${esc(s.className)})</option>`).join('');if(state.students.some(s=>s.id===old))el.value=old})}
+function renderBooks(){const el=document.getElementById('books-table');if(!el)return;const rows=[...state.books].sort((a,b)=>b.date.localeCompare(a.date));el.innerHTML=rows.length?`<div class="tablewrap"><table><thead><tr><th>Date</th><th>Student</th><th>Item</th><th>Qty</th><th>Total</th><th>Paid</th><th>Outstanding</th><th>Receipt</th></tr></thead><tbody>${rows.map(b=>`<tr><td>${esc(b.date)}</td><td>${esc(studentById(b.studentId)?.name||'Unknown')}</td><td>${esc(b.item)}</td><td>${b.quantity}</td><td>${money(b.total)}</td><td>${money(b.paid)}</td><td>${money(Math.max(0,b.total-b.paid))}</td><td><button class="light small" onclick="showReceipt('book','${b.id}')">View</button></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No book or item purchases recorded.</div>'}
+function renderTransactions(){const el=document.getElementById('transactions-table');if(!el)return;const q=(document.getElementById('transaction-search')?.value||'').toLowerCase(),type=document.getElementById('transaction-type')?.value||'';
+ let arr=[...state.payments.map(x=>({...x,kind:'fees',label:'School fees',studentName:studentById(x.studentId)?.name||'Unknown',paid:Number(x.amount)})),...state.books.map(x=>({...x,kind:'books',label:'Books/items',studentName:studentById(x.studentId)?.name||'Unknown',paid:Number(x.paid)}))].filter(x=>(!type||x.kind===type)&&(!q||[x.receiptNo,x.studentName,x.admission].some(v=>String(v||'').toLowerCase().includes(q)))).sort((a,b)=>b.date.localeCompare(a.date));
+ el.innerHTML=arr.length?`<div class="tablewrap"><table><thead><tr><th>Receipt No.</th><th>Date</th><th>Student</th><th>Type</th><th>Amount received</th><th>Method</th><th>Action</th></tr></thead><tbody>${arr.map(x=>`<tr><td>${esc(x.receiptNo)}</td><td>${esc(x.date)}</td><td>${esc(x.studentName)}</td><td>${x.label}</td><td>${money(x.paid)}</td><td>${esc(x.method||'—')}</td><td><button class="light small" onclick="showReceipt('${x.kind==='fees'?'payment':'book'}','${x.id}')">View / Print</button></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No transactions match your search.</div>'}
+document.getElementById('student-form').addEventListener('submit',e=>{e.preventDefault();let f=Object.fromEntries(new FormData(e.target));let id='stu_'+Date.now();let admission=f.admission.trim()||'DWPS/'+new Date().getFullYear()+'/'+String(state.counters.student++).padStart(4,'0');if(state.students.some(s=>s.admission.toLowerCase()===admission.toLowerCase()))return alert('That admission number already exists. Please use a unique number.');state.students.push({...f,id,admission,fees:Number(f.fees),createdAt:new Date().toISOString()});saveState();e.target.reset();e.target.elements.session.value='2026/2027';msg('register-success',`Student saved successfully. Admission number: ${admission}`);showPage('students')});
+document.getElementById('payment-student').addEventListener('change',updatePaymentPreview);
+function updatePaymentPreview(){const el=document.getElementById('payment-preview'),id=document.getElementById('payment-student')?.value,s=studentById(id);if(!el)return;if(!s){el.style.display='none';return}let paid=totalPaid(s),bal=Math.max(0,s.fees-paid);el.style.display='block';el.innerHTML=`<strong>${esc(s.name)}</strong> · ${esc(s.className)}<br>Expected fees: ${money(s.fees)} &nbsp;|&nbsp; Paid so far: ${money(paid)} &nbsp;|&nbsp; Balance before payment: ${money(bal)}`}
+document.getElementById('payment-form').addEventListener('submit',e=>{e.preventDefault();let f=Object.fromEntries(new FormData(e.target)),s=studentById(f.studentId);if(!s)return;let amount=Number(f.amount);if(amount<=0)return alert('Enter an amount greater than zero.');let receiptNo=`${state.settings.prefix||'DWPS'}-${new Date().getFullYear()}-${String(state.counters.receipt++).padStart(6,'0')}`;let p={...f,id:'pay_'+Date.now(),amount,receiptNo,studentName:s.name,admission:s.admission,section:s.section,className:s.className,createdAt:new Date().toISOString()};state.payments.push(p);saveState();e.target.reset();document.getElementById('payment-date').value=today();document.getElementById('payment-form').elements.session.value='2026/2027';showReceipt('payment',p.id);msg('payment-success','Payment recorded and receipt generated.')});
+document.getElementById('book-form').addEventListener('submit',e=>{e.preventDefault();let f=Object.fromEntries(new FormData(e.target)),s=studentById(f.studentId);if(!s)return;let total=Number(f.quantity)*Number(f.price),paid=Number(f.paid);if(paid<0||paid>total)return alert('Amount paid must be between ₦0 and the total item cost.');let receiptNo=`${state.settings.prefix||'DWPS'}-${new Date().getFullYear()}-${String(state.counters.receipt++).padStart(6,'0')}`;let b={...f,id:'book_'+Date.now(),quantity:Number(f.quantity),price:Number(f.price),total,paid,receiptNo,studentName:s.name,admission:s.admission,createdAt:new Date().toISOString()};state.books.push(b);saveState();e.target.reset();document.getElementById('book-date').value=today();document.getElementById('book-form').elements.session.value='2026/2027';showReceipt('book',b.id);msg('books-success','Purchase saved and receipt generated.')});
+function showReceipt(kind,id){let x=kind==='payment'?state.payments.find(p=>p.id===id):state.books.find(b=>b.id===id);if(!x)return;let s=studentById(x.studentId)||{name:x.studentName||'',admission:x.admission||'',className:x.className||'',guardian:'',phone:''};let isPay=kind==='payment';let previous= isPay?feesPaid(s.id,x.session,x.term)-Number(x.amount):0;let balance=isPay?Math.max(0,Number(s.fees||0)-feesPaid(s.id,x.session,x.term)):Math.max(0,Number(x.total)-Number(x.paid));
+ let detail=isPay?`<div><strong>Payment for</strong>School Fees</div><div><strong>Payment method</strong>${esc(x.method)}</div><div><strong>Previous amount paid</strong>${money(Math.max(0,previous))}</div><div><strong>Expected fees for this student record</strong>${money(s.fees)}</div><div><strong>Total fees paid to date</strong>${money(feesPaid(s.id,x.session,x.term))}</div><div><strong>Outstanding fees after payment</strong>${money(balance)}</div><div><strong>Transaction reference</strong>${esc(x.reference||'—')}</div>`:`<div><strong>Item purchased</strong>${esc(x.item)}</div><div><strong>Quantity × Unit price</strong>${x.quantity} × ${money(x.price)}</div><div><strong>Total item cost</strong>${money(x.total)}</div><div><strong>Payment method</strong>${esc(x.method||'—')}</div><div><strong>Amount paid</strong>${money(x.paid)}</div><div><strong>Outstanding for this item</strong>${money(balance)}</div>`;
+ const set=state.settings;document.getElementById('receipt-content').innerHTML=`<div class="receipthead"><img src="dwps-logo.jpg" alt="DWPS school crest" style="width:92px;height:92px;object-fit:contain;display:block;margin:0 auto 10px"><h1>${esc(set.schoolName||'De Wise Potter School')}</h1><p>${esc(set.address||'School Address')}${set.phone?' · '+esc(set.phone):''}</p><p>${set.email?esc(set.email):'Student Accounts Office'}</p></div><div class="receipt-title">OFFICIAL PAYMENT RECEIPT</div><div class="receipt-grid"><div><strong>Receipt Number</strong>${esc(x.receiptNo)}</div><div><strong>Date Received</strong>${esc(x.date)}</div><div><strong>Student Name</strong>${esc(s.name)}</div><div><strong>Admission Number</strong>${esc(s.admission)}</div><div><strong>Class</strong>${esc(s.className)}</div><div><strong>Academic Session / Term</strong>${esc(x.session||'—')} / ${esc(x.term||'—')}</div><div><strong>Parent / Guardian</strong>${esc(s.guardian||'—')}</div><div><strong>Parent Phone</strong>${esc(s.phone||'—')}</div>${detail}</div><div class="receipt-amount">AMOUNT RECEIVED: ${money(isPay?x.amount:x.paid)}</div><div class="signatures"><span>Received by / Authorized signature</span><span>Parent / Guardian signature</span></div><div class="footer">${esc(set.footer||'Thank you.') }<br>${esc(set.shortName||'DWPS')} · Please retain this receipt for your records.</div>`;
+ currentReceipt={kind,id};showPage('receipt')}
+function studentDetails(id){let s=studentById(id);if(!s)return;let paid=totalPaid(s),books=state.books.filter(b=>b.studentId===id);alert(`STUDENT PROFILE\\n\\nName: ${s.name}\\nAdmission No.: ${s.admission}\\nSection/Class: ${s.section} / ${s.className}\\nSession/Term: ${s.session} / ${s.term}\\nParent/Guardian: ${s.guardian}\\nPhone: ${s.phone}\\nExpected fees: ${money(s.fees)}\\nFees paid for this record: ${money(paid)}\\nOutstanding: ${money(Math.max(0,s.fees-paid))}\\nBook/item purchases: ${books.length}\\nBook/item total: ${money(books.reduce((a,b)=>a+b.total,0))}`)}
+function deleteStudent(id){let s=studentById(id);if(!s)return;if(!confirm(`Delete ${s.name}? This also removes their recorded payments and book purchases. Export a backup first if needed.`))return;state.students=state.students.filter(x=>x.id!==id);state.payments=state.payments.filter(x=>x.studentId!==id);state.books=state.books.filter(x=>x.studentId!==id);saveState()}
+document.getElementById('student-search').addEventListener('input',renderStudents);document.getElementById('class-filter').addEventListener('change',renderStudents);document.getElementById('section-filter').addEventListener('change',renderStudents);document.getElementById('transaction-search').addEventListener('input',renderTransactions);document.getElementById('transaction-type').addEventListener('change',renderTransactions);
+document.getElementById('settings-form').addEventListener('submit',e=>{e.preventDefault();state.settings={...state.settings,...Object.fromEntries(new FormData(e.target))};saveState();alert('School settings saved.')});
+function exportBackup(){const blob=new Blob([JSON.stringify({...state,backupCreatedAt:new Date().toISOString()},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='DWPS-backup-'+today()+'.json';a.click();URL.revokeObjectURL(url)}
+function restoreBackup(){const file=document.getElementById('restore-file').files[0];if(!file)return alert('Choose a backup JSON file first.');if(!confirm('This will replace the records currently saved in this browser. Continue?'))return;const r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!Array.isArray(x.students)||!Array.isArray(x.payments)||!Array.isArray(x.books)||!x.settings)throw Error('Invalid backup');state={students:x.students,payments:x.payments,books:x.books,settings:x.settings,counters:x.counters||{student:1,receipt:1}};saveState();alert('Backup restored successfully.')}catch(e){alert('Could not restore this file. Please choose a valid DWPS backup.')}};r.readAsText(file)}
+// DEMO-ONLY login gate: credentials are visible in client-side code and are not secure for production.
+const DEMO_USER='admin', DEMO_PASS='DWPS2026!';
+const loginGate=document.getElementById('login-gate');
+function setLoggedIn(on){loginGate.style.display=on?'none':'flex';document.getElementById('logout-btn').style.display=on?'inline-block':'none';if(!on){document.getElementById('login-password').value='';}}
+document.getElementById('login-form').addEventListener('submit',e=>{e.preventDefault();const u=document.getElementById('login-username').value.trim(),p=document.getElementById('login-password').value;const err=document.getElementById('login-error');if(u===DEMO_USER&&p===DEMO_PASS){sessionStorage.setItem('dwps_demo_login','yes');err.style.display='none';setLoggedIn(true)}else{err.textContent='Incorrect username or password.';err.style.display='block'}});
+document.getElementById('logout-btn').addEventListener('click',()=>{sessionStorage.removeItem('dwps_demo_login');setLoggedIn(false)});
+setLoggedIn(sessionStorage.getItem('dwps_demo_login')==='yes');
+// Register the service worker when hosted on HTTPS or localhost.
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(err => console.warn('Offline setup unavailable:', err)));
+}
+// initialize dates and settings
+['payment-date','book-date'].forEach(id=>document.getElementById(id).value=today());
+const sf=document.getElementById('settings-form');Object.entries(state.settings).forEach(([k,v])=>{if(sf.elements[k])sf.elements[k].value=v});
+renderAll();
+</script>
+</body>
+</html>
